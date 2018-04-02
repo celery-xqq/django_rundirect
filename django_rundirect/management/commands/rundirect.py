@@ -36,7 +36,11 @@ args and options are for the SCRIPT.py.
         sys.argv = self.after
         exec_globals = globals()
         exec_globals['__name__'] = '__main__'
-        execfile(filename, exec_globals)
+        if sys.version_info.major == 2:
+            execfile(filename, exec_globals)
+        else:
+            with open(filename) as fd:
+                exec(fd.read(), exec_globals)
 
 # Hack the sys.argv, make sure BaseComamnd.run_from_argv
 # doesn't get any undeclared options.
