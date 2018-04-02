@@ -35,7 +35,6 @@ Example:
 
     def handle(self, *args, **options):
         line = ' ' if not self.after else self.after[0]
-        print repr(line)
         exec(line)
 
 # Hack the sys.argv, make sure BaseComamnd.run_from_argv
