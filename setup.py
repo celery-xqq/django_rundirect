@@ -1,8 +1,16 @@
 #!/usr/bin/env python
 
+long_description = ""
+
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except:
+    pass
+
 sdict = {
     'name': 'django_rundirect',
-    'version': "0.2.0",
+    'version': "0.2.1",
     'license': 'MIT',
     'packages': ['django_rundirect',
                  'django_rundirect.management',
@@ -11,7 +19,8 @@ sdict = {
     'zip_safe': False,
     'install_requires': ['django'],
     'author': 'Lichun',
-    'url': 'https://gitcafe.com/yuexue/django_rundirect',
+    'long_description': long_description,
+    'url': 'https://github.com/socrateslee/django_rundirect',
     'classifiers': [
         'Environment :: Console',
         'Framework :: Django',
